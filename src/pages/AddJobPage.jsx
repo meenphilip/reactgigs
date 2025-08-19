@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddJobPage = ({ onAddJobSubmit }) => {
@@ -14,11 +14,13 @@ const AddJobPage = ({ onAddJobSubmit }) => {
   const [contactPhone, setContactPhone] = useState("");
 
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     const newJob = {
+      id,
       title,
       type,
       description,

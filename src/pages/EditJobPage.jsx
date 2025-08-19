@@ -16,12 +16,15 @@ const EditJobPage = ({ onEdit }) => {
   );
   const [contactEmail, setContactEmail] = useState(job.company.contactEmail);
   const [contactPhone, setContactPhone] = useState(job.company.contactPhone);
+
+  const { id } = useParams();
   const navigate = useNavigate();
 
   // Function to handle form submission
   const submitHandler = async (e) => {
     e.preventDefault();
     const updatedJob = {
+      id,
       title,
       type,
       description,
